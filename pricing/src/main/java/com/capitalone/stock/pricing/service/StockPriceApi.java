@@ -7,6 +7,6 @@ import com.capitalone.stock.pricing.model.DataTable;
 
 public interface StockPriceApi {
 
-	public DataTable getStockClosingPrices(List<String> stockSymbols, LocalDate start, LocalDate end);
+	public DataTable getStockData(List<String> stockSymbols, LocalDate start, LocalDate end);
 
 }

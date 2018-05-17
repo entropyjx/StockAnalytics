@@ -13,7 +13,7 @@ import lombok.Setter;
 public class StockStatistics {
 	String stockSymbol;
 	@Setter(AccessLevel.NONE)
-	List<StockData> stockDataPoints = new ArrayList<>();
+	List<StockDailyData> stockDataPoints = new ArrayList<>();
 	@Setter(AccessLevel.NONE)
 	BigDecimal maxDailyProfit;
 	@Setter(AccessLevel.NONE)
@@ -29,7 +29,7 @@ public class StockStatistics {
 	@Setter(AccessLevel.NONE)
 	HashMap<String, MonthlyPriceSum> monthlySums = new HashMap<>();
 	
-	public StockStatistics(String stockSymbol, StockData stockData)
+	public StockStatistics(String stockSymbol, StockDailyData stockData)
 	{
 		this.stockSymbol = stockSymbol;
 		processData(stockData);
@@ -38,7 +38,7 @@ public class StockStatistics {
 	public void calculateBusyDays(double threshold)
 	{
 		double averageVolume = getAverageVolume();
-		for(StockData data: stockDataPoints)
+		for(StockDailyData data: stockDataPoints)
 		{
 			if(data.getVolume() > averageVolume)
 			{
@@ -51,7 +51,7 @@ public class StockStatistics {
 		return volumeSum / days;
 	}
 
-	public void processData(StockData data) {
+	public void processData(StockDailyData data) {
 		stockDataPoints.add(data);
 		days++;
 		volumeSum += data.getVolume();

@@ -33,16 +33,16 @@ public class MonthlyAveragesController {
 	StockPriceCalculator stockPriceCalculator;
 	
 	@RequestMapping(method = {RequestMethod.GET}, value = "monthly-average", produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody ResponseEntity<List<StockPricingData>> getStockAveragePricingData(
+	public @ResponseBody ResponseEntity<List<StockPricingData>> getStockStatistics(
 			@RequestParam(value="stocks", required=true) List<String> stockSymbols, 
 			@RequestParam(value="month-start", required=true) String monthStart, 
 			@RequestParam(value="month-end", required=true) String monthEnd)
 	{
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM");
 	
-		LocalDate start = YearMonth.parse(monthStart, formatter).atDay(1); // choose whatever day you want
+		LocalDate start = YearMonth.parse(monthStart, formatter).atDay(1);
 		LocalDate end = YearMonth.parse(monthEnd, formatter).atDay(1);
-		DataTable dataTable = stockPriceApi.getStockClosingPrices(stockSymbols, start, end);
+		DataTable dataTable = stockPriceApi.getStockData(stockSymbols, start, end);
 		List<StockStatistics> stocks  = stockPriceCalculator.getStockStatistics(dataTable);
 		
 		List<StockPricingData> mapped = StockPricingDataMapper.map(stocks);
@@ -58,7 +58,7 @@ public class MonthlyAveragesController {
 		stockSymbols.add("GOOGL");
 		stockSymbols.add("MSFT");
 		
-		return getStockAveragePricingData(stockSymbols,"2017-01","2017-06");
+		return getStockStatistics(stockSymbols,"2017-01","2017-06");
 	} 
 	
 }

@@ -27,7 +27,7 @@ public class StockPriceApiImpl implements StockPriceApi {
 	RestTemplate restTemplate;
 
 	@Override
-	public DataTable getStockClosingPrices(List<String> stockSymbols, LocalDate start, LocalDate end) {
+	public DataTable getStockData(List<String> stockSymbols, LocalDate start, LocalDate end) {
 		String stockSymbolsJoined = String.join(",", stockSymbols);
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 

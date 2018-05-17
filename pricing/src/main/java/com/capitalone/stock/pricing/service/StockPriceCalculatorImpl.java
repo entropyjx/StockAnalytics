@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import com.capitalone.stock.pricing.model.DataTable;
-import com.capitalone.stock.pricing.model.StockData;
+import com.capitalone.stock.pricing.model.StockDailyData;
 import com.capitalone.stock.pricing.model.StockStatistics;
 
 @Component
@@ -27,7 +27,7 @@ public class StockPriceCalculatorImpl implements StockPriceCalculator {
 		return "$" + formatter.format(value);
 	}
 
-	protected StockData getStockData(List<Object> row) {
+	protected StockDailyData getStockDailyData(List<Object> row) {
 		String date = (String) row.get(DataTable.DATE_COL);
 
 		// Using BigDecimal as it's the most precise data type to use when
@@ -38,7 +38,7 @@ public class StockPriceCalculatorImpl implements StockPriceCalculator {
 		BigDecimal low = BigDecimal.valueOf((Double) row.get(DataTable.LOW_COL));
 		Double volume = (Double) row.get(DataTable.VOLUME_COL);
 
-		StockData data = StockData.builder().date(date).open(open).close(close).high(high).low(low).volume(volume)
+		StockDailyData data = StockDailyData.builder().date(date).open(open).close(close).high(high).low(low).volume(volume)
 				.build();
 
 		return data;
@@ -53,7 +53,7 @@ public class StockPriceCalculatorImpl implements StockPriceCalculator {
 
 			String stockSymbol = (String) row.get(DataTable.TICKER_COL);
 
-			StockData stockData = getStockData(row);
+			StockDailyData stockData = getStockDailyData(row);
 
 			if (stocksStatsMap.containsKey(stockSymbol)) {
 				StockStatistics myData = stocksStatsMap.get(stockSymbol);
