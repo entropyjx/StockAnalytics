@@ -13,11 +13,14 @@ import com.capitalone.stock.pricing.model.DataTable;
 import com.capitalone.stock.pricing.model.StockDailyData;
 import com.capitalone.stock.pricing.model.StockStatistics;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Component
 public class StockPriceCalculatorImpl implements StockPriceCalculator {
 
 	@Value("${busyDayThreshold}")
-	double busyDay;
+	@Getter @Setter double busyDay;
 	
 	protected String convertToCurrency(BigDecimal value) {
 		DecimalFormat formatter = new DecimalFormat();

@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Setter;
@@ -29,10 +31,19 @@ public class StockStatistics {
 	@Setter(AccessLevel.NONE)
 	HashMap<String, MonthlyPriceSum> monthlySums = new HashMap<>();
 	
-	public StockStatistics(String stockSymbol, StockDailyData stockData)
+	public StockStatistics(String stockSymbol, List<StockDailyData> stockDataPoints)
 	{
 		this.stockSymbol = stockSymbol;
-		processData(stockData);
+		for(StockDailyData dataPoint : stockDataPoints)
+		{
+			processData(dataPoint);
+		}
+	}
+	
+	public StockStatistics(String stockSymbol, StockDailyData stockDataPoint)
+	{
+		this.stockSymbol = stockSymbol;
+		processData(stockDataPoint);
 	}
 	
 	public void calculateBusyDays(double threshold)
@@ -47,6 +58,7 @@ public class StockStatistics {
 		}
 	}
 	
+	@JsonIgnore
 	public double getAverageVolume() {
 		return volumeSum / days;
 	}
