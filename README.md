@@ -9,9 +9,7 @@ This allows the runtime to be O(N).
 I made the api key, api url (quandl) and the threshold for busy day volume configurable under application.properties.
 
 I used BigDecimal since it is more precise and it is recommended to use this Data Type when dealing with currencies, especially when dividing (averages).
-
-Apologies:
-I didn't have time to create Unit Tests.
+	Averages are returned, rounded to 2 decimal places.
 
 Setup:
 Open with Spring Tool Suite (a flavor of Eclipse). 
