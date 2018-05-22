@@ -13,7 +13,8 @@ I used BigDecimal since it is more precise and it is recommended to use this Dat
 
 Setup:
 Open with Spring Tool Suite (a flavor of Eclipse). 
-I'm using 3.9.4.RELEASE version.
+	I'm using 3.9.4.RELEASE version.
+Install Lombok: https://projectlombok.org/, this is for the @Data, @Getter, @Setter, @Builder annotations.
 
 Open STS
 
