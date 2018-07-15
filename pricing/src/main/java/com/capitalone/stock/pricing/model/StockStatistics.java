@@ -31,6 +31,9 @@ public class StockStatistics {
 	@Setter(AccessLevel.NONE)
 	HashMap<String, MonthlyPriceSum> monthlySums = new HashMap<>();
 	
+	public StockStatistics()
+	{}
+	
 	public StockStatistics(String stockSymbol, List<StockDailyData> stockDataPoints)
 	{
 		this.stockSymbol = stockSymbol;
