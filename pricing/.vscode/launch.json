@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-PricingApplication<pricing>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.capitalone.stock.pricing.PricingApplication",
+            "projectName": "pricing",
+            "args": ""
+        }
+    ]
+}

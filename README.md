@@ -12,30 +12,34 @@ I used BigDecimal since it is more precise and it is recommended to use this Dat
 	Averages are returned, rounded to 2 decimal places.
 
 Setup:
-Open with Spring Tool Suite (a flavor of Eclipse). 
-	I'm using 3.9.4.RELEASE version.
-Install Lombok: https://projectlombok.org/, this is for the @Data, @Getter, @Setter, @Builder annotations.
+Install Microsoft VS Code
 
-Open STS
+Install Java
 
-Click on File -> Import
-Select existing maven projects.
-Browse to "pricing" folder, and import pom.xml, click finish.
+In VS Code, make sure you have the following Extensions installed (some extensions might install others)
+	1) Spring Boot Extension Pack
+	2) Java Extension Pack
+	3) Lombok Annotations Support 
+	4) Maven for Java
+	5) Language Support for Java(TM) by RedHat
+	6) Java Test Runner
+	7) Debugger for Java
+	8) Spring Boot Dashboard
+	9) Spring Boot Tools
+	10) Spring Initializr Java Support
 
-Right click the project, click Maven -> Update Project.
-Right click the project, click Run As -> Maven Install.
+Restart VS Code after installing extensions.
 
-Wait for dependencies to be downloaded to your .m2 repository.
+Open `\stock-analytics\pricing` folder with VS Code.
 
-Find the "Boot Dashboard" section in IDE.
-Expand "local"
-Right click "pricing" and click "(Re)Start"
+In terminal in VS Code, run: `mvn install`
 
-Wait for app to start up.
+Under `SRING-BOOT DASHBOARD` section, right click `pricing` and click `start`
+Or if in the terminal, run: `mvn spring-boot:run`
 
 Open up browser.
-Type in: http://localhost:8080/coding-exercise
+Type in: http://localhost:5000/coding-exercise
 
-Or http://localhost:8080/monthly-average?stocks=COF,GOOG,MSFT&month-start=2017-01&month-end=2017-06
+Or http://localhost:5000/monthly-average?stocks=COF,GOOG,MSFT&month-start=2017-01&month-end=2017-06
 
 Both do the same thing.
