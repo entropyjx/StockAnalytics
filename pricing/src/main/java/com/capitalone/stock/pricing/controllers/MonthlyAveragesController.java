@@ -3,7 +3,9 @@ package com.capitalone.stock.pricing.controllers;
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,7 +51,7 @@ public class MonthlyAveragesController {
 		
 		return new ResponseEntity<List<StockPricingData>>(mapped, HttpStatus.OK);
 	}
-	
+
 	@RequestMapping(method = {RequestMethod.GET}, value = "coding-exercise", produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<List<StockPricingData>> getResultsForCodingExercise(){
 
