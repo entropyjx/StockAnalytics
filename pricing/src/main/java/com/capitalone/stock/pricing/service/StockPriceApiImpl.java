@@ -17,10 +17,11 @@ import com.capitalone.stock.pricing.model.DataTableContainer;
 
 @Component
 public class StockPriceApiImpl implements StockPriceApi {
-	@Value("${api-key}")
+	//Values taken from application.properties file
+	@Value("${apiKey}")
 	String apiKey;
 
-	@Value("${api-url}")
+	@Value("${apiUrl}")
 	String apiUrl; // https://www.quandl.com/api/v3/datatables
 
 	@Autowired
