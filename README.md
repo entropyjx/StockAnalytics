@@ -46,6 +46,8 @@ Or http://localhost:5000/monthly-average?stocks=COF,GOOG,MSFT&month-start=2017-0
 Both do the same thing.
 
 ## Trouble shooting Mac OS X
+
+### Setting Maven's Java Home
 1. Find Java Home on Mac:
 ```
 > /usr/libexec/java_home
@@ -67,3 +69,16 @@ vim /usr/local/.../maven/3.9.4/bin/mvn
 JAVA_HOME="${JAVA_HOME:-/Library/Java/JavaVirtualMachines/[ rest of path ]}" exec "/usr/local/Cellar/maven/3.9.4/libexec/bin/mvn"  "$@"
 ```
 
+### Deleting JDKs that don't work with Maven
+
+1. Delete old SDKs
+```
+cd /Library/Java/JavaVirtualMachines
+sudo rm -rf <jdk version>
+```
+
+2. Install Amazon Correto SDK:
+Download and install the Mac OS dmg file:
+https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/downloads-list.html
+
+3. Follow above steps to set maven's java home path.
