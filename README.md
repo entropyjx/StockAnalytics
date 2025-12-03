@@ -12,24 +12,26 @@ I used BigDecimal since it is more precise and it is recommended to use this Dat
 	Averages are returned, rounded to 2 decimal places.
 
 Setup:
-Install Microsoft VS Code
+1. Install Microsoft VS Code
+2. Install Java, I use Amazon Coretta's Open JDK: https://docs.aws.amazon.com/corretto/latest/corretto-25-ug/downloads-list.html
+3. Install Maven, I use brew: `brew install maven`
+4. Set and confirm `JAVA_HOME`: 
+For example, I set correta in JAVA_HOME and JAVA_PATH in my `~/.zshrc` mac os zsh profile, add the following lines:
+```
+    export JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-25.jdk/Contents/Home
+    export PATH=$JAVA_HOME/bin:$PATH
+```
 
-Install Java
 
 In VS Code, make sure you have the following Extensions installed (some extensions might install others)
 
 1. Spring Boot Extension Pack
-2. Java Extension Pack
-3. Lombok Annotations Support 
-4. Maven for Java
-5. Language Support for Java(TM) by RedHat
-6. Java Test Runner
-7. Debugger for Java
-8. Spring Boot Dashboard
-9. Spring Boot Tools
-10. Spring Initializr Java Support
-
-Restart VS Code after installing extensions.
+2. Spring Boot Tools
+3. Spring Boot Dashboard
+4. Spring Initializr Java Support
+5. Java Extension Pack
+6. Lombok Annotations Support 
+7. Language Support for Java(TM) by Red Hat
 
 Open `\stock-analytics\pricing` folder with VS Code.
 

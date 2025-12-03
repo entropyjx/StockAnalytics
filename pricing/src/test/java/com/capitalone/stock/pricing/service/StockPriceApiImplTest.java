@@ -1,18 +1,11 @@
 package com.capitalone.stock.pricing.service;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-import java.io.IOException;
 import java.net.URI;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
 import org.mockito.Mockito;
@@ -21,11 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.web.client.RestTemplate;
 
-import com.capitalone.stock.pricing.model.DataTable;
 import com.capitalone.stock.pricing.model.DataTableContainer;
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class StockPriceApiImplTest {
 
@@ -37,7 +26,7 @@ public class StockPriceApiImplTest {
 	@Captor ArgumentCaptor<URI> uriCaptor = ArgumentCaptor.forClass(URI.class);
 	@Captor ArgumentCaptor<Class<DataTableContainer>> classCaptor;
 	
-	@Before
+	@BeforeEach
 	public void init()
 	{
 		restTemplate = mock(RestTemplate.class);

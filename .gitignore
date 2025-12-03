@@ -1,30 +1,10 @@
-# Operating System Files
+pricing/mvn/wrapper/maven-wrapper.jar
 
-*.DS_Store
-Thumbs.db
-*.sw?
-.#*
-*#
-*~
-*.sublime-*
-
-# Build Artifacts
-
-.gradle/
-build/
-target/
-bin/
-dependency-reduced-pom.xml
-
-# Eclipse Project Files
-
-.classpath
-.project
-.settings/
-
-# IntelliJ IDEA Files
-
-*.iml
-*.ipr
-*.iws
-*.idea
+### VS Code ###
+pricing/.vscode/
+.DS_Store
+pricing/target/
+pricing/.mvn/
+pricing/.vscode/
+pricing/.sts4-cache/
+pricing/.factorypath

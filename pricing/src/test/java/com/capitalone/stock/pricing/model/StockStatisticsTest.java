@@ -1,19 +1,19 @@
 package com.capitalone.stock.pricing.model;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Before;
-import org.junit.Test;
-
 public class StockStatisticsTest {
 
 	StockStatistics stock;
 	
-	@Before
+	@BeforeEach
 	public void init()
 	{
 		stock = new StockStatistics("MSFT",createStockDataPoints());
